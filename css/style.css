@@ -1,0 +1,27 @@
+
+.logo{
+    height:7%;
+    width: 10%;
+    margin-right:2.5%;
+}
+.admin_img{
+    width: 100px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+.card-img-top{
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+}
+
+.card-text{
+    font-size: 50px;
+}
+.username{
+    color: red;
+}
+.text-light{
+   color:white;
+}
+
