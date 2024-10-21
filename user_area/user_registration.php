@@ -23,6 +23,7 @@ include('../functions/commun_function.php');
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- css file link -->
+     
     <link rel="stylesheet" href="../css/style.css" rel="text/css">
     <style>
     body {
@@ -130,8 +131,8 @@ include('../functions/commun_function.php');
 
 
         <!-- fourth child start -->
-        <div class="row px-3">
-            <!-- registration form -->
+        <!-- registration form --> 
+        <!-- <div class="row px-3">
             <div class="container-fluid my-3">
                 <h2 class="text-center">New User Registaion</h2>
                 <div class="row d-flex align-item-center justify-content-center mt-5">
@@ -181,13 +182,61 @@ include('../functions/commun_function.php');
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- fourth child end -->
-
+        </div> -->
+        <!-- new registration form -->
+        <div class="row p-5 bg-dark" >
+            <h1 class="text-center text-light">Register your self</h1>
+            <div class="col-md-6 p-5 m-auto bg-secondary rounded-4">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <div class="form-outlin mb-3">
+                                <lable class="form-lable text-light" for="user_username">Username :</lable>
+                                <input type="text" name="user_username" class="form-control input-group"
+                                    placeholder="Enter user name" required="true" id="">
+                            </div>
+                            <div class="form-outlin mb-3">
+                                <lable class="form-lable text-light" for="user_email">Email :</lable>
+                                <input type="email" name="user_email" class="form-control input-group"
+                                    placeholder="Enter user email" required="true" id="">
+                            </div>
+                            <div class="form-outlin mb-3">
+                                <lable class="form-lable text-light" for="user_image">Profile Image :</lable>
+                                <input type="file" name="user_image" class="form-control input-group" required="true" id="">
+                            </div>
+                            <div class="form-outlin mb-3">
+                                <lable class="form-lable text-light" for="user_password">Password :</lable>
+                                <input type="password" name="user_password" class="form-control input-group"
+                                    placeholder="Enter password" required="true" id="">
+                            </div>
+                            <div class="form-outlin mb-3">
+                                <lable class="form-lable text-light" for="conf_user_password">Confirm Password :</lable>
+                                <input type="password" name="conf_user_password" class="form-control input-group"
+                                placeholder="Enter confirm password" required="true" id="">
+                            </div>
+                            <div class="form-outlin mb-3">
+                                <lable class="form-lable text-light" for="user_address">Address :</lable>
+                                <input type="text" name="user_address" class="form-control input-group"
+                                    placeholder="Enter your address" required="true" id="">
+                                </div>
+                                <div class="form-outlin mb-3">
+                                    <lable class="form-lable text-light" for="user_contact">Contact No :</lable>
+                                <input type="number" name="user_contact" class="form-control input-group"
+                                    placeholder="Enter mobile no" required="true" id="">
+                            </div>
+                            <div class="text-center mt-3 mb-3 ">
+                                <input type="submit" value="Register" class="btn btn-outline-warning py-2 px-3 w-100"
+                                name="user_register">
+                                <p class="small fw-bold mt-2">Already have an account ? <strong><a href="user_login.php"
+                                            class="text-danger">Login</a></strong>.</p>
+                                        </div>
+                                    </form>               
+                                </div>
+                            </div>
+                            
+            <!-- fourth child end -->
 
         <!-- footer start -->
         <!-- include futer  -->
-        <?php include('../includes/footer.php'); ?>
+        <?php include('./includes/footer.php'); ?>
         <!-- footer end -->
     </div>
 

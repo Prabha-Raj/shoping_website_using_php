@@ -47,9 +47,77 @@ include('../functions/commun_function.php');
                 <a href="www.paypal.com"><img src="../images/upi-payment-icon.png" class="img" style="width: 300px;" alt="upi payment option"></a>
             </div>
             <div class="col-md-6 ml-5">
-                    <a href="order.php?user_id=<?php echo $user_id; ?> "><h2 class="text-center">Pay Offline</h2></a>
+                    <a href="order.php?user_id=<?php echo $user_id; ?> "><h2 class="text-center">Cash on Delivery</h2></a>
             </div>
         </div>
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    $(document).ready(function(){
+    $("#orderform").submit(function(e){
+        e.preventDefault();
+        $("#btn1").prop("disabled",true);
+        var amt =$("#amount").val();
+        $.ajax({
+            url:"https://phpcrud.himanshukashyap.com/rzp/createOrder.php?amount="+amt,
+            type:"get",
+            error:function(){
+                alert("Error in Ajax");
+            },
+                success: function(data){
+                    var token=data.token;
+                    var key = data.key;
+                       // Configure all parameters for payment
+                       var options = {
+                        "key": key,
+                        "amount": amt*100,
+                        "currency": "INR",
+                        "name": "Shopping",
+                        "description": "Test Transaction",
+                        "image": "../images/logo.png",
+                        "order_id": token,
+                        "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+                        "prefill": {
+                            "name": $("#name").val(),
+                            "email": $("#email").val(),
+                            "contact": $("#mobile").val()
+                        },
+                        "notes": {
+                            "address": "DigiCoders Technologies Private Limited, Lucknow, UP"
+                        },
+                        "theme": {
+                            "color": "#3399cc"
+                        }, 
+
+                        // Handle Success Response
+                        "handler": function(response) {
+                            alert("Payment Success");
+                            window.location.href="success.html";
+                        }
+                    };
+
+                    // Initialize Razorpay SDK
+                    var rzp1 = new Razorpay(options);
+
+                    // Open Razorpay
+                    rzp1.open();
+
+
+                    // Handle Payment Fail Response
+                    rzp1.on('payment.failed', function (response){
+                        alert("Payment Failed");
+                        window.location.href="failed.html";
+                    });
+                    
+                }
+        });
+    
+    });
+});
+</script>
 </html>

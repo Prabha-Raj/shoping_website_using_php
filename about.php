@@ -132,7 +132,7 @@ include('./functions/commun_function.php');
         <div class="row px-3">
             <div class="col-md-12">
                 <h>Founder of This Company :</h3>
-                <h1>Er. Prabhakar Nishad</h1>
+                <h1>Er. Prabhakar Rajput</h1>
                 <p class="text-center">Snaps</p>
                 <div class="row my-2 ">
                     <div class="col-md-6">

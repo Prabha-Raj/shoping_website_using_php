@@ -135,7 +135,7 @@ include('../includes/connect.php');
 
         <!-- footer start -->
         <!-- include futer  -->
-        <?php include('../includes/footer.php'); ?>
+        <?php include('./includes/footer.php'); ?>
         <!-- footer end -->
     </div>
 

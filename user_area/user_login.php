@@ -122,8 +122,8 @@ include('../functions/commun_function.php');
 
 
         <!-- fourth child start -->
-        <div class="row px-3">
-            <!-- login form -->
+        <!-- login form -->
+        <!-- <div class="row px-3">
             <div class="container-fluid my-3">
                 <h2 class="text-center">User Login Here</h2>
                 <div class="row d-flex align-item-center justify-content-center mt-5">
@@ -146,13 +146,33 @@ include('../functions/commun_function.php');
                 </div>
             </div>
 
+        </div> -->
+        <!-- new login  form -->
+        <div class="row p-5 bg-dark" >
+            <h1 class="text-center text-light">Login Here</h1>
+            <div class="col-md-6 p-5 m-auto bg-secondary rounded-4">
+            <form action="" method="post" enctype="multipart/form-data">
+                            <div class="form-outlin mb-4">
+                                <lable class="form-lable text-light" for="user_username">Username :</lable>
+                                <input type="text" name="user_username" class="form-control input-group" placeholder="Enter user name" required="true" id="">
+                            </div>
+                            <div class="form-outlin mb-4">
+                                <lable class="form-lable text-light" for="user_password">Password :</lable>
+                                <input type="password" name="user_password" class="form-control input-group" placeholder="Enter password" required="true" id="">
+                            </div>
+                            <div class="text-center mt-3 mb-5 ">
+                                <input type="submit" value="Login" class="btn btn-outline-warning py-2 px-3 w-100" name="user_login">
+                                <p class="small fw-bold mt-2 text-light">Already have an account ? <strong><a href="user_registration.php" value='user_registration' class="text-primary">Register</a></strong>.</p>
+                            </div>
+                        </form>
+                </form>                
+            </div>
         </div>
         <!-- fourth child end -->
 
-
         <!-- footer start -->
         <!-- include futer  -->
-        <?php include('../includes/footer.php'); ?>
+        <?php include('./includes/footer.php'); ?>
         <!-- footer end -->
     </div>
 
