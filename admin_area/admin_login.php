@@ -24,41 +24,78 @@ include('../functions/commun_function.php');
     <style>
     body {
         overflow-x: hidden;
+        background: linear-gradient(90deg, #00264d, #005b99);
     }
-    .theme_img{
-        width: 80%;
+
+    .form-control {
+        border: 1px solid #ced4da;
+        border-radius: 8px;
+        padding: 10px;  
+        font-size: 14px;
+    }
+
+    .btn-primary {
+        background-color: #2874f0;
+        border-color: #2874f0;
+        border-radius: 8px;
+    }
+
+    .btn-primary:hover {
+        background-color: #1a5dc7;
+    }
+
+    .form-label {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .theme_img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .text-primary {
+        color: #2874f0 !important;
+    }
+
+    .text-primary:hover {
+        text-decoration: underline;
     }
     </style>
 
 </head>
 <body>
-    <div class="container-fluid my-3">
-        <h2 class="text-center text-success">Admin Login</h2>
-        <div class="row d-flex align-item-center justify-content-center mt-5 table table-bordered">
-        <div class="col-lg-4">
-            <img src="../images/admin.png" alt="theme" class="theme_img">
-                <!-- <img src="../images/side_image1.jpg" alt="theme" class="theme_img">
-                <img src="../images/side_image2.jpg" alt="theme" class="theme_img"> -->
+    <div class="mainDiv">
+        <h2 class="text-center" style="color:white; margin-top:120px; font-size:50px; font-weight:bold;">Admin Login</h2>
+        <div class="underDiv d-flex justify-content-center align-items-center" style=" background:linear-gradient(90deg, #00264d, #005b99);">
+            <div class="card shadow-lg" style="border-radius: 10px; max-width: 400px; width: 100%; padding: 20px;">
+                <div class="text-center mb-4">
+                    <img src="../images/admin.png" alt="theme" class="theme_img" style="width: 80px; height: 80px; object-fit: cover; border-radius: 50%;">
+                </div>
+                <div class="card-body">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <div class="form-group mb-3">
+                            <label for="admin_username" class="form-label">Username</label>
+                            <input type="text" name="admin_username" class="form-control" placeholder="Enter username" required id="admin_username">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="admin_password" class="form-label">Password</label>
+                            <input type="password" name="admin_password" class="form-control" placeholder="Enter password" required id="admin_password">
+                        </div>
+                        <div class="text-center mt-3">
+                            <input type="submit" value="Login" class="btn btn-primary w-100 py-2" name="admin_login">
+                        </div>
+                        <p class="small fw-bold mt-3 text-center">
+                            Don't have an account? 
+                            <a href="./admin_registration.php" class="text-primary">Register</a>.
+                        </p>
+                    </form>
+                </div>
             </div>
-            <div class="col-lg-8">
-                <form action="" method="post" enctype="multipart/form-data" class="w-75 m-auto">
-                    <div class="form-outlin mb-1">
-                        <lable class="form-lable" for="admin_username">Username :</lable>
-                        <input type="text" name="admin_username" class="form-control" placeholder="Enter user name" required="true" id="">
-                    </div>
-                    <div class="form-outlin mb-1">
-                        <lable class="form-lable" for="admin_password">Password :</lable>
-                        <input type="password" name="admin_password" class="form-control" placeholder="Enter password" required="true" id="">
-                    </div>
-                    
-                    <div class="text-center mt-3 mb-1 ">
-                        <input type="submit" value="Login" class="btn btn-outline-primary py-2 px-3 w-100" name="admin_login" >
-                        <p class="small fw-bold mt-2">Don't have an account ? <strong><a href="./admin_registration.php" class="text-danger">Register</a></strong>.</p>
-                    </div>
-                </form>
-            </div>
-            
         </div>
+
     </div>
 </body>
 </html>

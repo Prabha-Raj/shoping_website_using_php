@@ -61,22 +61,24 @@ if(isset($_POST['insert_product'])){
     <!-- Form -->
     <form action="" method="post" enctype="multipart/form-data">
         <!-- Product title -->
-        <div class="form-outline mb-4 w-50 m-auto">
+         <div class="row">
+            <div class="col-sm-6">
+        <div class="form-outline mb-4 w-100 m-auto">
             <label for="product_title" class="form-label">Product title</label>
             <input type="text" id="product_title" name="product_title" class="form-control" placeholder="Enter Product title" autocomplet="off">
         </div>
         <!-- Product description -->
-        <div class="form-outline mb-4 w-50 m-auto">
+        <div class="form-outline mb-4 w-100 m-auto">
             <label for="product_description" class="form-label">Product description</label>
             <input type="text" id="product_description" name="product_description" class="form-control" placeholder="Enter Product description" autocomplet="off">
         </div>
         <!-- Product keywords -->
-        <div class="form-outline mb-4 w-50 m-auto">
+        <div class="form-outline mb-4 w-100 m-auto">
             <label for="product_keywords" class="form-label">Product keywords</label>
             <input type="text" id="product_keywords" name="product_keywords" class="form-control" placeholder="Enter Product keywords" autocomplet="off">
         </div>
         <!-- Product category -->
-        <div class="form-outline mb-4 w-50 m-auto">
+        <div class="form-outline mb-4 w-100 m-auto">
             <select name="product_category" id="product_category" class="form-select text-dark">
                 <option value="">Select a Category</option>
                 <?php
@@ -91,7 +93,7 @@ if(isset($_POST['insert_product'])){
             </select>
         </div>
         <!-- Product brands -->
-        <div class="form-outline mb-4 w-50 m-auto">
+        <div class="form-outline mb-4 w-100 m-auto">
             <select name="product_brand" id="product_brand" class="form-select">
                 <option value="">Select a Brands</option>
                 <?php
@@ -105,31 +107,34 @@ if(isset($_POST['insert_product'])){
                 ?>
             </select>
         </div>
+        </div>
+        <div class="col-sm-6">
           <!-- Product Image 1 -->
-          <div class="form-outline mb-4 w-50 m-auto">
+        <div class="form-outline mb-4 w-100 m-auto">
             <label for="product_image1" class="form-label">Product image 1</label>
             <input type="file" id="product_image1" name="product_image1" class="form-control" >
         </div>
           <!-- Product Image 2 -->
-          <div class="form-outline mb-4 w-50 m-auto">
+          <div class="form-outline mb-4 w-100 m-auto">
             <label for="product_image2" class="form-label">Product image 2</label>
             <input type="file" id="product_image2" name="product_image2" class="form-control" >
         </div>
         <!-- Product Image 3 -->
-        <div class="form-outline mb-4 w-50 m-auto">
+        <div class="form-outline mb-4 w-100 m-auto">
           <label for="product_image3" class="form-label">Product image 3</label>
           <input type="file" id="product_image3" name="product_image3" class="form-control" >
       </div>
       <!-- Product Price -->
-      <div class="form-outline mb-4 w-50 m-auto">
+      <div class="form-outline mb-4 w-100 m-auto">
           <label for="product_price" class="form-label">Product Price</label>
           <input type="text" id="product_price" name="product_price" required="true" autocomplet="off" placeholder="Enter Product Price" class="form-control">
         </div>
       <!-- submit button -->
-      <div class="form-outline mb-4 w-50 m-auto">          
+      <div class="form-outline mb-4 w-100 m-auto">          
           <input type="submit" id="insert_product" name="insert_product" value="Insert Products" class="btn btn-outline-primary">
         </div>
-
+                </div>
+    </div>
     </form>
 </div> 
 </body>

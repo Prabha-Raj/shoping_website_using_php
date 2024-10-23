@@ -29,7 +29,7 @@ if(isset($_SESSION['admin_name'])){
         overflow-x: hidden;
     }
     .admin_img{
-        width: 80px;
+        width: 100px;
     }
     .text{
         font-size: 12px;
@@ -37,28 +37,71 @@ if(isset($_SESSION['admin_name'])){
     .update_product_image{
         width: 80px;
     }
-    footer{
-        margin-top:100px;
+
+    .navbar-nav .nav-links{
+        color:black;
+        font-size:30px;
+        font-weight:bold;
+        padding:20px;
+    }
+    
+    .navbar .navbars{
+        display:flex;
+        flex-direction:column;
+    }
+
+    .navbarPr .navbar-nav{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .navbar-nav .nav-item{
+        width: 100%;
+    }
+
+    .navbar-nav .nav-item a{
+        font-size:20px;
+        /* border:1px solid gray; */
+        
+    }
+
+    .dhw{
+        /* margin:0px; */
+        width:300px;
+        height:610px;
+        background: linear-gradient(90deg, #00264d, #005b99);
+    }
+
+    .data{
+        position:absolute;
+        height:80vh;
+        width:80%;
+        top:50px;
+        right:0;
+        bottom:0;
+        overflow:scroll;
+        /* position:sticky; */
     }
     </style>
 </head>
 <body>
     <div class="container-fluid p-0">
         <!-- First Child -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <nav class="navbar navbar-light" style=" height:130px;">
             <div class="container-fluid ">
                 <img src="../images/logo.png" alt="logo" class="logo">
-                <nav class="navbar navbar-expand-lg">
+                <nav class="navbar ">
                     <ul class="navbar-nav">
                         <?php
                         if(isset($_SESSION['admin_name'])){
                             $admin_name = $_SESSION['admin_name'];
                             echo "<li class='nav-item'>
-                            <a href='#' class='nav-link'>Welcome $admin_name !</a>
+                            <a href='#' class='nav-links'>Welcome $admin_name !</a>
                             </li>";
                         }else{
                             echo "<li class='nav-item'>
-                            <a href='#' class='nav-link'>Welcome Guest!</a>
+                            <a href='#' class='nav-links'>Welcome Guest!</a>
                         </li>";
                         }
                         ?>
@@ -69,14 +112,14 @@ if(isset($_SESSION['admin_name'])){
 
 
         <!-- second Child -->
-        <div class="bg-light">
+        <!-- <div class="bg-light">
         <p class="fw-bold text-center text-success" style="font-size: 100px;">Admin Section</p>
             <h1 class="text-center text-danger p-3">Manage Details</h1>
-        </div>
+        </div> -->
 
         <!-- third Child start-->
-        <nav class="navbar navbar-expand-lg bg-secondary">
-            <div class="container-fluid">
+        <nav class="navbar dhw navbar-expand-lg">
+            <div class=" navbars container-fluid">
             <?php
                     // getting admin image frome database
                     $admin_name = $_SESSION['admin_name'];
@@ -92,7 +135,7 @@ if(isset($_SESSION['admin_name'])){
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbarPr collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active text-light mx-1 px-3   text" aria-current="page" href="index.php?insert_products">Insert Products</a>
@@ -128,33 +171,10 @@ if(isset($_SESSION['admin_name'])){
                 </div>
             </div>
         </nav>
-        <!-- third Child end -->
-        
-        <!-- <div class="row">
-            <div class="col-md-12 bg-secondary p-1 d-flex aling-items-center">
-                <div class="p-3">
-                    <a href="#"><img src="../images/admin.jpg" alt="Admin" class="admin_img"></a>
-                    <p class="text-light text-center m-0">Admin Name</p>
-                </div>
-                <div class="button text-center">
-                    <button class="btn btn-outline-warning mx-0 my-3"><a href="index.php?insert_products" class="nav-link text-light my-1">Insert Products</a></button>
-                    <button class="btn btn-outline-warning"><a href="index.php?view_products" class="nav-link text-light my-1">View Products</a></button>
-                    <button class="btn btn-outline-warning" ><a href="index.php?insert_category" class="nav-link text-light my-1">Inser Categories</a></button>
-                    <button class="btn btn-outline-warning"><a href="#" class="nav-link text-light my-1">View Categories</a></button>
-                    <button class="btn btn-outline-warning"><a href="index.php?insert_brands" class="nav-link text-light my-1">Insert Brands</a></button>
-                    <button class="btn btn-outline-warning"><a href="#" class="nav-link text-light my-1">View Brands</a></button>
-                    <button class="btn btn-outline-warning"><a href="#" class="nav-link text-light my-1">All Orders</a></button>
-                    <button class="btn btn-outline-warning"><a href="#" class="nav-link text-light my-1">All Payments</a></button>
-                    <button class="btn btn-outline-warning"><a href="#" class="nav-link text-light my-1">Listed Users</a></button>
-                    <button class="btn btn-outline-warning"><a href="#" class="nav-link text-light my-1">Logout</a></button>
-                    </a>
-                </div>
-            </div>
-        </div> -->
     </div>
     
     <!-- Fourth Child -->
-    <div class="container my-3">
+    <div class="data my-3">
        
         <?php
         if(isset($_GET['insert_category'])){
@@ -204,7 +224,7 @@ if(isset($_SESSION['admin_name'])){
 <!-- LAST Child -->
 
     <!-- footer start -->
-<?php include('./includes/footer.php'); ?>
+
     <!-- footer end -->
 
     
