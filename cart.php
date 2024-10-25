@@ -34,13 +34,26 @@ include('./functions/commun_function.php');
         body {
             overflow-x: hidden;
         }
+        .navbar{
+            background:linear-gradient(90deg, #00264d, #005b99);
+            color:white;
+        }
+
+        .navbar .navbar-nav{
+            display:flex;
+            gap:40px;
+        }
+
+        .navbar .navbar-nav .nav-item .nav-link{
+            color:white;
+        }
     </style>
 </head>
 
 <body>
     <div class="container-fluid p-0">
         <!-- Navbar start -->
-        <nav class="navbar navbar-expand-lg bg-warning">
+        <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <img src="./images/logo.png" alt="logo" class="logo">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -49,7 +62,7 @@ include('./functions/commun_function.php');
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="index.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="display_all_products.php">Products</a></li>
                         <?php if(isset($_SESSION['username'])): ?>
                             <li class='nav-item'><a class='nav-link' href='./user_area/user_profile.php'>My Account</a></li>
@@ -60,15 +73,8 @@ include('./functions/commun_function.php');
                         <li class="nav-item"><a class="nav-link" href="./about.php">About-Us</a></li>
                         <li class="nav-item"><a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item(); ?></sup></a></li>
                     </ul>
-                    <form action="search_products.php" class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" name="search_data" placeholder="Search" aria-label="Search">
-                        <input type="submit" value="search" name="search_data_product" class="btn btn-outline-primary" />
-                    </form>
-                </div>
-            </div>
-        </nav>
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary" style="height:30px;">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary" style="height:30px;">
             <ul class="navbar-nav me-auto text-light p-0" style="font-weight:500;font-size:15px;">
                 <li class="nav-item">
                     <a href="#" class="nav-link">Welcome <mark class="username bg-secondary" style="color: red;">
@@ -81,6 +87,12 @@ include('./functions/commun_function.php');
                 <?php endif; ?>
             </ul>
         </nav>
+
+                </div>
+            </div>
+        </nav>
+
+
 
         <div class="bg-light text-center p-3">
             <h3>Our Online Store</h3>
