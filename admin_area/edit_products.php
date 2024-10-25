@@ -36,6 +36,7 @@ if(isset($_GET['edit_products'])){
     <!-- Form -->
         <form action="" method="post" enctype="multipart/form-data">
             <!-- Product title -->
+            <input type="hidden" name="product_id" value="<?php echo $edit_product_id; ?>">
             <div class="form-outline mb-4 w-50 m-auto">
                 <label for="product_title" class="form-label">Product title</label>
                 <input type="text" value="<?php echo $product_title ?>" id="product_title" name="product_title" required="true" class="form-control"
@@ -119,13 +120,14 @@ if(isset($_GET['edit_products'])){
             <div class="form-outline mb-4 w-50 m-auto">
                 <input type="submit" id="edit_product" name="edit_product" value="Update Products"
                     class="btn btn-outline-primary">    
+                </div>
             </div>
-</div>
-
+            
 <!-- editing products -->
 <?php
 if(isset($_POST['edit_product'])){
-    // $edit_product_id=$_POST['edit_product'];
+    $edit_product_id=$_POST['product_id'];
+    echo "product_id : ", $edit_product_id;
     $product_title = $_POST['product_title'];
     $product_description = $_POST['product_description'];
     $product_keywords = $_POST['product_keywords'];
@@ -150,21 +152,13 @@ if(isset($_POST['edit_product'])){
         echo "<script>alert('Please fill All the available fields')</script>";
         exit();
     }else{
-        
+        if(!$conn){
+            echo "<script>alert('database not connected')</script>";
+        }else{
         // Insert Query  
-        $update_product = "UPDATE `products` SET 
-        product_title='$product_title',
-        product_description='$product_description',
-        product_keywords='$product_keywords',
-        category_id=$product_category,
-        brand_id=$product_brand,
-        product_image1='$product_image1', 
-        product_image2='$product_image2',
-        product_image3='$product_image3',
-        product_price='$product_price' 
-        WHERE product_id='$edit_product_id'";
+        $update_product = "UPDATE `products` SET `product_title`='$product_description',`product_description`='$product_description',`product_keywords`='$product_keywords',`category_id`='$product_category',`brand_id`='$product_brand ',`product_image1`='$product_image1',`product_image2`='$product_image2',`product_image3`='$product_image3',`product_price`='$product_price ',`status`='$product_status' WHERE product_id ='$edit_product_id'";
         $result_update = mysqli_query($conn,$update_product) or die("<script> alert('Not update')</script>");
-        
+    }
         if($result_update){
             move_uploaded_file($temp_image1, "./product_images/$product_image1");
             move_uploaded_file($temp_image2, "./product_images/$product_image2");
